@@ -1,0 +1,44 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.7.0 <0.9.0;
+
+contract ListTasks {
+
+struct Task {
+    string task;
+    bool ok;
+}
+
+//mapping(Tasks => task1) public tasksM;
+Task[] public tasks;
+mapping(uint =>Task) allTask;
+//mapping(Task => task1) public tasksM;
+/*uint public totalVotes;*/
+
+ 
+
+ 
+function addTask(string memory  _name)  public{
+    tasks.push(Task(_name, false));
+    
+   // allTask[_number]=Task(_name, false);
+}
+
+function getAllTask() public view returns (Task[] memory) {
+
+        return tasks;
+    }
+
+ 
+function findTask(uint   _number) public view returns (Task memory) {
+    return tasks[_number];
+      
+    }
+function deleteTask(uint   _number) public  {
+    delete tasks[_number];
+      
+    }
+
+ 
+ 
+}
